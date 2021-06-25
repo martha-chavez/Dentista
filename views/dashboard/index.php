@@ -1,13 +1,13 @@
 <?php require_once "vistas/parte_superior.php" ?>
 <!--INICIO del cont principal-->
 <div class="container ">
-    
+
     <?php
-    include_once '../../models/coneccion.php';
-    $consulta = "SELECT fecha, nombre, pais, ventas FROM personas";
-    $data = mysqli_query($conexion, $consulta);
+    // include_once '../../models/coneccion.php';
+    // $consulta = "SELECT fecha, nombre, pais, ventas FROM personas";
+    // $data = mysqli_query($conexion, $consulta);
     ?>
-    <div class="container d-flex  flex-row-reverse justify-content-end">
+    <!-- <div class="container d-flex  flex-row-reverse justify-content-end">
         <div class="row">
             <div class="col-3">
                 <button id="btnNuevo" type="button" class="btn btn-outline-success btn-lg " data-toggle="modal">Nuevo</button>
@@ -16,41 +16,21 @@
             
         </div>
         <div class="mx-auto " >
-                <h3> HISTORIAL DE ACTIVIDADES Y EVENTOS</h3>
+                <h3> Citas proximas
+                </h3>
             </div>
+    </div> -->
+   
+    <div class="container ">
+    <div class="mx-2 text-center ">
+        <h1 class="  titulos-Dentista"> Dentista Nombre </h1>
+        <h3 class="titulos-Dentista"> Bienvenido </h3>
     </div>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table id="tablaPersonas" class="table table-striped table-bordered table-condensed" style="width:100%">
-                        <thead class="text-center">
-                            <tr>
-                                <th>Fecha y hora</th>
-                                <th>Lugar</th>
-                                <th>Descripcion</th>
-                                <th>Observaciones</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <?php
-                            foreach ($data as $dat) {
-                            ?>
-                                <tr>
-                                    <td><?php echo $dat['fecha'] ?></td>
-                                    <td><?php echo $dat['nombre'] ?></td>
-                                    <td><?php echo $dat['pais'] ?></td>
-                                    <td><?php echo $dat['ventas'] ?></td>
-                                    <td></td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row mt-n4">
+            <div class="col-lg  ">
+                <center>
+                    <img src="../../public/img/diente.png" alt="Dentista" class="index">
+                </center>
             </div>
         </div>
     </div>

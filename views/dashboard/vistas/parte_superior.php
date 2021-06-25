@@ -17,13 +17,14 @@ if ($_SESSION["usuario"]  === null) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> Dashboard</title>
+  <title> Dentista</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="../../public/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../public/css/Dentista.css">
   <!--datables CSS básico-->
   <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css" />
   <!--datables estilo bootstrap 4 CSS-->
@@ -44,7 +45,7 @@ if ($_SESSION["usuario"]  === null) {
       <div class=" d-none d-md-inline mt-5">
 
         <a class="sidebar-brand " href="index.php">
-          <div class="sidebar-brand-text ">Dashboard <sup></sup></div>
+          <div class="sidebar-brand-text ">Dentista <sup></sup></div>
         </a>
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
@@ -55,8 +56,8 @@ if ($_SESSION["usuario"]  === null) {
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="index.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+        <i class="fab fa-bity"></i>          
+        <span>INICIO</span></a>
       </li>
 
       <!-- Line a de divicion -->
@@ -66,14 +67,42 @@ if ($_SESSION["usuario"]  === null) {
       <div class="sidebar-heading">
         Agregar
       </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- CLIENTES -->
       <li class="nav-item fs-5">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" href=""  >
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegarClientes" aria-expanded="true" aria-controls="collapseTwo" href="">
+          <!-- <i class="fas fa-fw fa-cog "></i> -->
+          <i class="fas fa-tooth"></i>
+          <span>PACIENTES</span>
+        </a>
+        <div id="desplegarClientes" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+            <a class="collapse-item" href="">Agregar</a>
+            <a class="collapse-item" href="">Historial</a>
+          </div>
+        </div>
+      </li>
+      <!-- CITAS -->
+      <li class="nav-item fs-5">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegarNotificacion" aria-expanded="true" aria-controls="desplegarNotificacion" href="">
+          <i class="far fa-calendar-check"></i>
+          <span>CITAS</span>
+        </a>
+        <div id="desplegarNotificacion" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+            <a class="collapse-item" href="notificaciones.php">Agendar Cita</a>
+            <a class="collapse-item" href="listarNotificaciones.php">Ver Citas</a>
+          </div>
+        </div>
+      </li>
+      <!-- ADMINISTRADORES -->
+      <li class="nav-item fs-5">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" href="">
           <!-- <i class="fas fa-fw fa-cog "></i> -->
           <i class="fas fa-users"></i>
-          <span>Administrador</span>
-        </a> 
+          <span>ADMINISTRADORES</span>
+        </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
@@ -81,20 +110,10 @@ if ($_SESSION["usuario"]  === null) {
             <a class="collapse-item" href="listarAdministradores.php">Listar</a>
           </div>
         </div>
-      </li> 
-      <li class="nav-item fs-5"   >
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#desplegarNotificacion" aria-expanded="true" aria-controls="desplegarNotificacion" href="" >
-          <i class="far fa-bell"></i>
-          <span>Notificaciones</span>
-        </a>
-        <div id="desplegarNotificacion" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-            <a class="collapse-item" href="notificaciones.php">Agregar Notificacion</a>
-            <a class="collapse-item" href="listarNotificaciones.php">Ver Notificaciones</a>
-          </div>
-        </div>
       </li>
+
+
+
 
 
 
@@ -112,7 +131,7 @@ if ($_SESSION["usuario"]  === null) {
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1" >
+            <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <span class="badge badge-danger badge-counter" id="cantidad"></span>
@@ -121,31 +140,33 @@ if ($_SESSION["usuario"]  === null) {
                 <h6 class="dropdown-header">
                   Centro de Notificaciones
                 </h6>
-                <a class="dropdown-item text-center small text-gray-500" href="#"></a>
+                <a class="dropdown-item text-center small text-gray-500" href="listarNotificaciones.php"></a>
               </div>
             </li>
+
+
 
             <div class="topbar-divider d-none d-sm-block"></div>
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small text-uppercase"><?php echo $_SESSION["usuario"]; ?></span>
-                <img class="img-profile rounded-circle" src="../../public/img/user.png">
+                <img class="img-profile rounded-circle" src="../../public/img/DienteUser.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
+                  <?php echo $_SESSION["usuario"]; ?>
                 </a>
-                <a class="dropdown-item" href="#">
+                <!-- <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
                 </a>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Activity Log
-                </a>
+                </a> -->
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
