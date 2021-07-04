@@ -7,3 +7,7 @@
 .titulos-Dentista{
     text-shadow: 3px 2px 2px rgb(72, 150, 214);
 }
+.anyClass {
+    height:150px;
+    overflow-y: scroll;
+  }

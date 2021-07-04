@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION["usuario"]  === null) {
-  header("Location: ../login.html");
+  header("Location: ../../index.html");
 }
 ?>
 <?php require_once "vistas/parte_superior.php" ?>
@@ -32,7 +32,7 @@ if ($_SESSION["usuario"]  === null) {
 
 </head>
 
-<body id="page-top">
+<body >
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -56,8 +56,8 @@ if ($_SESSION["usuario"]  === null) {
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="index.php">
-        <i class="fab fa-bity"></i>          
-        <span>INICIO</span></a>
+          <i class="fas fa-clinic-medical"></i>
+          <span>INICIO</span></a>
       </li>
 
       <!-- Line a de divicion -->
@@ -78,7 +78,7 @@ if ($_SESSION["usuario"]  === null) {
           <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Custom Components:</h6> -->
             <a class="collapse-item" href="">Agregar</a>
-            <a class="collapse-item" href="">Historial</a>
+            <a class="collapse-item" href="historial.php">Historial</a>
           </div>
         </div>
       </li>
@@ -136,11 +136,14 @@ if ($_SESSION["usuario"]  === null) {
                 <i class="fas fa-bell fa-fw"></i>
                 <span class="badge badge-danger badge-counter" id="cantidad"></span>
               </a>
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" id="not">
-                <h6 class="dropdown-header">
+              <div  class="  dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in scrc "aria-labelledby="alertsDropdown"   >
+                <h6 class=" d-flex flex-column dropdown-header">
                   Centro de Notificaciones
                 </h6>
-                <a class="dropdown-item text-center small text-gray-500" href="listarNotificaciones.php"></a>
+                <div class="overflow-auto" style="max-width: 320px; max-height: 320px;"  id="not">
+
+                </div>
+                <a class="dropdown-item text-center small text-gray-500" href=""></a>
               </div>
             </li>
 
